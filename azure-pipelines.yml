@@ -9,10 +9,14 @@ trigger:
 pool: ubuntu
 
 steps:
-- task: Maven@3
+- task: Maven@4
   inputs:
-    mavenPomFile: /MyWebApp/pom.xml
-    publishjunitresults: true
-    testresultsfiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'package'
+    mavenPomFile: '/MyWebApp/pom.xml'
+    publishJUnitResults: true
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    javaHomeOption: 'JDKVersion'
+    mavenVersionOption: 'Default'
+    mavenAuthenticateFeed: false
+    effectivePomSkip: false
+    sonarQubeRunAnalysis: false
 
